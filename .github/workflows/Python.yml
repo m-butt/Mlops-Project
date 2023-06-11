@@ -1,12 +1,15 @@
 name: Python Test
 
 on:
+  pull_request:
+    branches: [main, Haziq,mehmood,muhammadb]
+    types: [closed]
   push:
-    branches:
-      - main
+    branches: [main, Haziq,mehmood,muhammadb]
 
 jobs:
   test:
+    if: github.event.pull_request.merged == true || github.event.push==true
     runs-on: ubuntu-latest
 
     steps:
